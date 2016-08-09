@@ -1,4 +1,8 @@
+require 'current_items'
+
 class Checkout
+  include CurrentItems
+
   attr_reader :basket
   def initialize
     @basket =[]
