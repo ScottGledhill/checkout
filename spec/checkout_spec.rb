@@ -9,6 +9,6 @@ describe Checkout do
 
   it 'can add items to basket after scan' do
     checkout.scan("Lavender heart", (9.25))
-    expect(checkout.basket).to include("Lavender heart", (9.25))
+    expect(checkout.basket).to include(["Lavender heart", (9.25)])
   end
 end

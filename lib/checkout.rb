@@ -1,12 +1,11 @@
 class Checkout
   attr_reader :basket
   def initialize
-    @basket = []
+    @basket =[]
   end
 
-  def scan(item, price)
-    basket << item
-    basket << price
+  def scan(*items)
+    basket << items
   end
 
   def total
