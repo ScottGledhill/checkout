@@ -9,10 +9,11 @@ class Checkout
   end
 
   def scan(item)
-    PRODUCT_LIST.include?(item) ? basket << item : raise("Not current item")
+    PRODUCT_LIST.include?(item) ? basket << PRODUCT_LIST[item] : raise("Not current item")
   end
 
   def total
-    9.25
+    price = basket.map { |item| item[:price] }
+      price.inject(0) {|a,b| a + b}
   end
 end
