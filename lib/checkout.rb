@@ -8,8 +8,8 @@ class Checkout
     @basket =[]
   end
 
-  def scan(*items)
-    basket << items
+  def scan(item)
+    PRODUCT_LIST.include?(item) ? basket << item : raise("Not current item")
   end
 
   def total
