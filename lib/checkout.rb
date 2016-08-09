@@ -14,6 +14,6 @@ class Checkout
 
   def total
     price = basket.map { |item| item[:price] }
-      price.inject(0) {|a,b| a + b}
+    price.inject(0) {|a,b| a + b}
   end
 end
