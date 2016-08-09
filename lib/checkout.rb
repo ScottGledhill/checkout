@@ -5,6 +5,8 @@ class Checkout
   end
 
   def scan(item, price)
+    basket << item
+    basket << price
   end
 
   def total
