@@ -19,7 +19,7 @@ class FrequencyDiscount
 
   def discount(basket, discount_item)
     if apply_discount?(basket, discount_item)
-      p item_count(basket, discount_item) * @discount
+      item_count(basket, discount_item) * @discount
     end
   end
 end
