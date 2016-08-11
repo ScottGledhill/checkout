@@ -17,6 +17,10 @@ class Checkout
     @percentage_discount.discount(total)
   end
 
+  def check_frequency_discount
+    apply_discount?(@basket)
+  end
+
   def total
     @total = basket.map { |item| item[:price] }.inject(0) {|a,b| a + b}
     check_percentage_discount(@total)

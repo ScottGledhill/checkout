@@ -1,4 +1,3 @@
-require 'checkout'
 class PercentageDiscount
 attr_reader :spend_neccessary, :reduction
 
