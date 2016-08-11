@@ -1,7 +1,7 @@
 require 'checkout'
 
 describe Checkout do
-  subject(:checkout) {described_class.new}
+  subject(:checkout) {described_class.new(PercentageDiscount.new(60,10))}
   it 'can scan items and change total' do
     checkout.scan("Lavender heart")
     checkout.scan("Personalised cufflinks")

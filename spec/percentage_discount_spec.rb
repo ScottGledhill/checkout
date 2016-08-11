@@ -9,6 +9,6 @@ describe PercentageDiscount do
   end
 
   it 'doesnt calculate discount if lower than required amount' do
-    expect(percent.discount(55)).to eq nil
+    expect(percent.discount(55)).to eq 55
   end
 end
