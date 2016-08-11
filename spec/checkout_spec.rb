@@ -16,11 +16,4 @@ describe Checkout do
   it 'raises error if incorrect item scanned' do
     expect{checkout.scan("item")}.to raise_error "Not current item"
   end
-
-  it 'can implement percentage discounts' do
-    checkout.scan("Lavender heart")
-    checkout.scan("Personalised cufflinks")
-    checkout.scan("Lavender heart")
-    expect(checkout.total).to eq 54.25
-  end
 end

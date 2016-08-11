@@ -1,15 +1,20 @@
 require 'checkout'
 class PercentageDiscount
-  attr_reader :checkout
+attr_reader :spend_neccessary, :reduction
 
-  def initialize(checkout = Checkout.new)
-    @checkout = checkout
+  def initialize(spend_neccessary,reduction)
+    @spend_neccessary = spend_neccessary
+    @reduction = reduction
   end
 
-  def check_discount(amount,reduction)
-    p checkout.total
-    if amount > checkout.total
-      checkout.total % 100 * (100 - reduction)
+  def apply_discount?(current_total)
+    current_total > spend_neccessary
+  end
+
+  def discount(current_total)
+    if apply_discount?(current_total)
+      current_total * reduction / 100
     end
   end
+
 end

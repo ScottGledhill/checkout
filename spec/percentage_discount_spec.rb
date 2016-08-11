@@ -2,15 +2,9 @@ require 'percentage_discount'
 
 
 describe PercentageDiscount do
-  subject(:percent) {described_class.new}
+  subject(:percent) {described_class.new(60,10)}
 
   it 'can decrease total by percent given' do
-    checkout = Checkout.new
-    checkout.scan("Personalised cufflinks")
-    checkout.scan("Lavender heart")
-    checkout.scan("Personalised cufflinks")
-    checkout.scan("Lavender heart")
-    checkout.total
-    percent.check_discount(60,10)
+    expect(percent.discount(70)).to eq 7
   end
 end
