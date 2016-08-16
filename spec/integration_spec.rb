@@ -10,3 +10,5 @@ describe Checkout do
     expect(checkout.checkout("Lavender heart")).to eq 17
   end
 end
+
+#write more integration tests, fix mock tests
