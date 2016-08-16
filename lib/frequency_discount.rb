@@ -9,20 +9,20 @@ class FrequencyDiscount
     @discount = discount
   end
 
-  def apply_discount?(basket, discount_item)
-    item_count(basket, discount_item) >= frequency_needed
+  def apply_discount?(basket, freq_discount_item)
+    item_count(basket, freq_discount_item) >= frequency_needed
   end
 
-  def item_count(basket, discount_item)
-    basket.count(discount_item)
+  def item_count(basket, freq_discount_item)
+    amount = basket.map{|x| x[:name]}
+    amount.count(freq_discount_item)
   end
 
-  def discount(basket, discount_item, total)
-    if apply_discount?(basket, discount_item)
-      count = item_count(basket, discount_item) * @discount
+  def discount(basket, freq_discount_item, total)
+    if apply_discount?(basket,freq_discount_item)
+      count = item_count(basket, freq_discount_item) * @discount
       total - count
     else
-    p "why am i in here"
       total
     end
   end
