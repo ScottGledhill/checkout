@@ -1,8 +1,12 @@
 require 'checkout'
 
 describe Checkout do
-  subject(:checkout) {described_class.new(PercentageDiscount.new(60,10), FrequencyDiscount.new(2,"Lavender hearts", 0.75))}
+  let(:percent) { double (PercentageDiscount.new(60,10)) }
+  let(:frequency) {double (FrequencyDiscount.new(2,"Lavender hearts", 0.75))}
+
+  subject(:checkout) {described_class.new(:percent, :frequency)}
   it 'can scan items and change total' do
+    allow(:percent).to receive(discount)
     checkout.scan("Lavender heart")
     checkout.scan("Personalised cufflinks")
     expect(checkout.total("Lavender heart")).to eq 54.25
