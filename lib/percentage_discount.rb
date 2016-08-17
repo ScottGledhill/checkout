@@ -11,6 +11,6 @@ attr_reader :spend_neccessary, :reduction
   end
 
   def discount(current_total)
-    apply_discount?(current_total) ? current_total * reduction / 100 : current_total
+    apply_discount?(current_total) ? current_total - current_total * reduction / 100 : current_total
   end
 end

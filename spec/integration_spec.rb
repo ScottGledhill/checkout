@@ -7,8 +7,22 @@ describe Checkout do
    it 'can total basket including freq discount' do
     checkout.scan("Lavender heart")
     checkout.scan("Lavender heart")
-    expect(checkout.checkout("Lavender heart")).to eq 17
+    expect(checkout.total("Lavender heart")).to eq 17
+  end
+
+  it 'can total basket including percentage_discount' do
+    checkout.scan("Lavender heart")
+    checkout.scan("Kids T-shirt")
+    checkout.scan("Personalised cufflinks")
+    checkout.scan("Personalised cufflinks")
+    expect(checkout.total("Lavender heart")).to eq 107.28
+  end
+
+  it 'can total basket including both discounts' do
+    checkout.scan("Lavender heart")
+    checkout.scan("Lavender heart")
+    checkout.scan("Personalised cufflinks")
+    checkout.scan("Personalised cufflinks")
+    expect(checkout.total("Lavender heart")).to eq 96.15
   end
 end
-
-#write more integration tests, fix mock tests

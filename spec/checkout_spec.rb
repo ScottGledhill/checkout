@@ -5,7 +5,7 @@ describe Checkout do
   it 'can scan items and change total' do
     checkout.scan("Lavender heart")
     checkout.scan("Personalised cufflinks")
-    expect(checkout.checkout("Lavender heart")).to eq 54.25
+    expect(checkout.total("Lavender heart")).to eq 54.25
   end
 
   it 'can add items to basket after scan' do
